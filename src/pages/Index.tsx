@@ -97,12 +97,6 @@ const Index = () => {
   return (
     <div className={`min-h-screen ${getBackgroundForStep()} relative overflow-hidden flex items-center justify-center p-4 transition-colors duration-700`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_50%)]"></div>
-      <div className="absolute top-8 left-8 opacity-10">
-        <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="" className="w-32 h-32" />
-      </div>
-      <div className="absolute bottom-8 right-8 opacity-10">
-        <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="" className="w-24 h-24" />
-      </div>
       <div className="w-full max-w-2xl relative z-10">
         <div className="text-center mb-8 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
