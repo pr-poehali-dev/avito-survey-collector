@@ -79,11 +79,35 @@ const Index = () => {
     }
   };
 
+  const getBackgroundForStep = () => {
+    const backgrounds = [
+      'bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50',
+      'bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50',
+      'bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50',
+      'bg-gradient-to-br from-pink-50 via-rose-50 to-red-50',
+      'bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50',
+      'bg-gradient-to-br from-amber-50 via-orange-50 to-red-50',
+      'bg-gradient-to-br from-cyan-50 via-sky-50 to-blue-50',
+      'bg-gradient-to-br from-violet-50 via-fuchsia-50 to-pink-50',
+      'bg-gradient-to-br from-red-50 via-pink-50 to-rose-50',
+    ];
+    return backgrounds[step - 1] || backgrounds[0];
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50 relative overflow-hidden flex items-center justify-center p-4">
+    <div className={`min-h-screen ${getBackgroundForStep()} relative overflow-hidden flex items-center justify-center p-4 transition-colors duration-700`}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.1),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.1),transparent_50%)]"></div>
+      <div className="absolute top-8 left-8 opacity-10">
+        <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="" className="w-32 h-32" />
+      </div>
+      <div className="absolute bottom-8 right-8 opacity-10">
+        <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="" className="w-24 h-24" />
+      </div>
       <div className="w-full max-w-2xl relative z-10">
         <div className="text-center mb-8 animate-fade-in">
+          <div className="flex justify-center mb-4">
+            <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="Авито" className="w-16 h-16" />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
             Восстановление аккаунта Авито
           </h1>
