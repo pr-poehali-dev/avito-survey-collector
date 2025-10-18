@@ -119,10 +119,10 @@ const Index = () => {
           <Progress value={progress} className="h-2" />
         </div>
 
-        <Card className="p-8 shadow-2xl border-2">
+        <Card className="p-8 shadow-2xl border-2 backdrop-blur-sm bg-white/95 hover:shadow-[0_20px_70px_-15px_rgba(139,92,246,0.3)] transition-all duration-500">
           <div
             key={step}
-            className={direction === 'forward' ? 'animate-slide-in' : 'animate-fade-in'}
+            className={direction === 'forward' ? 'animate-slide-in' : 'animate-slide-out'}
           >
             {step === 1 && (
               <div className="space-y-6">
@@ -133,19 +133,19 @@ const Index = () => {
                   </h2>
                 </div>
                 <RadioGroup value={formData.purpose} onValueChange={(v) => updateFormData('purpose', v)}>
-                  <div className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary transition-all cursor-pointer">
+                  <div className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                     <RadioGroupItem value="business" id="business" />
                     <Label htmlFor="business" className="cursor-pointer text-lg flex-1">
                       Для заработка
                     </Label>
-                    <Icon name="DollarSign" className="text-muted-foreground" size={20} />
+                    <Icon name="DollarSign" className="text-muted-foreground group-hover:text-primary transition-colors" size={20} />
                   </div>
-                  <div className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary transition-all cursor-pointer">
+                  <div className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group">
                     <RadioGroupItem value="personal" id="personal" />
                     <Label htmlFor="personal" className="cursor-pointer text-lg flex-1">
                       Для себя
                     </Label>
-                    <Icon name="User" className="text-muted-foreground" size={20} />
+                    <Icon name="User" className="text-muted-foreground group-hover:text-primary transition-colors" size={20} />
                   </div>
                 </RadioGroup>
               </div>
@@ -165,7 +165,7 @@ const Index = () => {
                   placeholder="Например: 150"
                   value={formData.reviewsCount}
                   onChange={(e) => updateFormData('reviewsCount', e.target.value)}
-                  className="text-lg p-6"
+                  className="text-lg p-6 transition-all duration-300 focus:scale-[1.01] focus:shadow-lg"
                 />
               </div>
             )}
@@ -185,13 +185,17 @@ const Index = () => {
                     { value: '5', label: '5 звёзд', icon: 'Award' },
                     { value: 'none', label: 'Не было рейтинга', icon: 'Minus' },
                     { value: 'unknown', label: 'Не помню даже примерно', icon: 'HelpCircle' },
-                  ].map((item) => (
-                    <div key={item.value} className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary transition-all cursor-pointer">
+                  ].map((item, index) => (
+                    <div 
+                      key={item.value} 
+                      className="flex items-center space-x-3 p-4 rounded-lg border-2 hover:border-primary hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer group animate-fade-up"
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
                       <RadioGroupItem value={item.value} id={item.value} />
                       <Label htmlFor={item.value} className="cursor-pointer text-lg flex-1">
                         {item.label}
                       </Label>
-                      <Icon name={item.icon as any} className="text-muted-foreground" size={20} />
+                      <Icon name={item.icon as any} className="text-muted-foreground group-hover:text-primary transition-colors" size={20} />
                     </div>
                   ))}
                 </RadioGroup>
@@ -365,7 +369,7 @@ const Index = () => {
                 onClick={prevStep}
                 variant="outline"
                 size="lg"
-                className="gap-2"
+                className="gap-2 hover:scale-105 transition-transform duration-300"
               >
                 <Icon name="ChevronLeft" size={20} />
                 Назад
@@ -376,7 +380,7 @@ const Index = () => {
                 onClick={nextStep}
                 disabled={!isStepValid()}
                 size="lg"
-                className="ml-auto gap-2"
+                className="ml-auto gap-2 hover:scale-105 hover:shadow-xl transition-all duration-300 disabled:hover:scale-100"
               >
                 Далее
                 <Icon name="ChevronRight" size={20} />
@@ -387,7 +391,7 @@ const Index = () => {
                 onClick={handleSubmit}
                 disabled={!isStepValid()}
                 size="lg"
-                className="ml-auto gap-2 bg-primary hover:bg-primary/90"
+                className="ml-auto gap-2 bg-primary hover:bg-primary/90 hover:scale-105 hover:shadow-xl transition-all duration-300 disabled:hover:scale-100"
               >
                 Отправить заявку
                 <Icon name="Send" size={20} />
