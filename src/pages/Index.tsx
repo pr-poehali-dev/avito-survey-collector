@@ -105,9 +105,6 @@ const Index = () => {
       </div>
       <div className="w-full max-w-2xl relative z-10">
         <div className="text-center mb-8 animate-fade-in">
-          <div className="flex justify-center mb-4">
-            <img src="https://cdn.poehali.dev/files/6127588a-01cd-464f-a022-0551134a6ae7.png" alt="Авито" className="w-16 h-16" />
-          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
             Восстановление аккаунта Авито
           </h1>
