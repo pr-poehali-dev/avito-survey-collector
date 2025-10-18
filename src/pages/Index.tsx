@@ -108,15 +108,15 @@ const Index = () => {
         </div>
 
         <div className="mb-8 animate-fade-in">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-sm font-medium text-muted-foreground">
+          <div className="flex justify-between items-center mb-3">
+            <span className="text-sm font-medium text-muted-foreground transition-all duration-300">
               Шаг {step > 8 ? 8 : step} из {totalSteps}
             </span>
-            <span className="text-sm font-medium text-primary">
+            <span className="text-sm font-bold text-primary tabular-nums transition-all duration-300 animate-scale-in">
               {Math.round(progress)}%
             </span>
           </div>
-          <Progress value={progress} className="h-2" />
+          <Progress value={progress} className="h-3 shadow-lg" />
         </div>
 
         <Card className="p-8 shadow-2xl border-2 backdrop-blur-sm bg-white/95 hover:shadow-[0_20px_70px_-15px_rgba(139,92,246,0.3)] transition-all duration-500">
